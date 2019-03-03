@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Posts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+
+    <h2><strong> Posts </strong></h2>
+    <% @post.each do |p| %>
+    <div class="columns is-mobile is-centered">
+    <div class="column is-half">
+        <hr>
+        <p class="bd-notification is-primary">Post number: <%= p.id %></p><br/>
+        <p class="bd-notification is-primary">Title: <%= p.title %></p><br/>
+            <p class="bd-notification is-primary"><%= p.text %></p>
+            <hr>
+        </div>
+        </div>
+        <div class="columns is-mobile is-centered">
+        <div class="column is-half">
+            <p class="level-item has-text-centered">
+                <%= link_to 'Show', post_path(p)%> |
+        
+                <%= link_to 'Edit', edit_post_path(p) %> |
+            
+                <%= link_to 'Delete', post_path(p), method: :delete, data: {confirm: 'Are you sure?'}%>
+            </p>
+            </div>
+        </div>
+
+    <% end %>
+    
+</body>
+</html>

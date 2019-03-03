@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="columns is-mobile is-centered">
+    <div class="column is-half">
+        <hr>
+        <p class="bd-notification is-primary">Post number: <%= @post.id %></p><br/>
+        <p class="bd-notification is-primary">Title: <%= @post.title %></p><br/>
+            <p class="bd-notification is-primary"><%= @post.text %></p>
+            <hr>
+        </div>
+        </div>
+        <div class="columns is-mobile is-centered">
+        </div>
+
+    
+<p class="bd-notification is-primary">Comment: </p><br/>
+<%@post.comments.each do |comment|%>
+<article class="media">
+<figure class="media-left">
+    <p class="image is-64x64">
+    <img src="https://bulma.io/images/placeholders/128x128.png">
+    </p>
+</figure>
+<div class="media-content">
+    <div class="content">
+    <p>
+        <strong><%=comment.author%></strong> 
+        <br>
+        <%=comment.body%>
+    </p>
+    </div>
+</article>
+<% end %>
+    
+
+        <%= form_for([@post, @post.comments.build]) do |f| %>
+    <div class="field">
+    <label class="label">Author</label>
+    <div class="control">
+        <%=f.text_field :author %>
+    </div>
+    </div>
+    <div class="field">
+    <label class="label"><%= f.label :body %></label>
+    <div class="control">
+        <%= f.text_area :body %>
+    </div>
+    </div>
+        <div class="field is-grouped">
+    <div class="control">
+    <%= f.submit 'Submit', :class =>"button is-link" %>
+    </div>
+
+<% end %>
+
+    
+</body>
+</html>

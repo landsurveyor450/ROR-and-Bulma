@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>New Post</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+<div class="container">
+<h2>New Post</h2>
+
+<%= form_for :posts , url: posts_path do |f| %>
+    <div class="field">
+    <label class="label">Title</label>
+    <div class="control">
+        <%=f.text_field :title %>
+    </div>
+    </div>
+    <div class="field">
+    <label class="label"><%= f.label :text %></label>
+    <div class="control">
+        <%= f.text_area :text %>
+    </div>
+    </div>
+        <div class="field is-grouped">
+    <div class="control">
+    <%= f.submit 'Submit', :class =>"button is-link" %>
+    </div>
+
+<% end %>
+    
+</body>
+</html>
