@@ -49,12 +49,12 @@
         <div class="navbar-end">
         <div class="navbar-item">
             <div class="buttons">
-            <a class="button is-primary">
-                <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">
-                Log in
-            </a>
+            <p class="button is-primary">
+                <strong><%=link_to "Sign in", new_user_session_path %></strong>
+            </p>
+            <p class="button is-light">
+                <strong><%= link_to "Sign out", destroy_user_session_path, method: :delete %></strong>
+            </p>
             </div>
         </div>
         </div>
